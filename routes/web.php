@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 });
 Route::get('/about',function(){
     return view('about',[
-        'articles'=>App\Models\Article::latest()->take(3)->get()
+        'articles'=>Article::latest()->take(3)->get()
     ]);
 });
 
@@ -27,8 +28,10 @@ Route::controller(ArticlesController::class)->group(function(){
     Route::get('/articles/{article}','show');
 });
 
-Route::get('/articles',function(){
-    return view('articles',[
-        'articles'=>App\Models\Article::latest()->get()
-    ]);
-});
+// Route::get('/articles',function(){
+//     return view('articles',[
+//         'articles'=>App\Models\Article::latest()->get()
+//     ]);
+// });
+
+Route::get('/articles',[ArticlesController::class,'index']);

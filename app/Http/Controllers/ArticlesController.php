@@ -15,4 +15,11 @@ class ArticlesController extends Controller
             'article' =>$article
         ]);
     }
+
+    public function index()
+    {
+        return view('articles',[
+            'articles'=>Article::latest()->get()
+        ]);
+    }
 }
