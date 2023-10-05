@@ -36,4 +36,7 @@
 		</div>
 	</div>
 </div>
+<div class="create" style="background-color: green; margin:30px; color:red;">
+	<a href="/articles/create">Want to create a new article?</a>
+</div>
 @endsection

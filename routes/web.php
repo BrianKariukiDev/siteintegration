@@ -24,6 +24,10 @@ Route::get('/about',function(){
     ]);
 });
 
+Route::post('/articles',[ArticlesController::class,'store']);
+
+Route::get('/articles/create',[ArticlesController::class,'create']);
+
 Route::controller(ArticlesController::class)->group(function(){
     Route::get('/articles/{article}','show');
 });
@@ -35,3 +39,4 @@ Route::controller(ArticlesController::class)->group(function(){
 // });
 
 Route::get('/articles',[ArticlesController::class,'index']);
+
